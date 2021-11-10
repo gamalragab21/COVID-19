@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/card_drawable.xml" value="0.2713541666666667" />
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/country_code.xml" value="0.2713541666666667" />
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/ic_error.xml" value="0.2713541666666667" />
         <entry key="..\:/COVID-19/app/src/main/res/drawable/ic_image.xml" value="0.2713541666666667" />
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/rootbg.xml" value="0.2713541666666667" />
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/rootbgg.xml" value="0.2713541666666667" />
+        <entry key="..\:/COVID-19/app/src/main/res/drawable/viewbg.xml" value="0.2713541666666667" />
         <entry key="..\:/COVID-19/app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
+        <entry key="..\:/COVID-19/app/src/main/res/layout/home_fragment.xml" value="0.18" />
+        <entry key="..\:/COVID-19/app/src/main/res/layout/spash_fragment.xml" value="0.19882246376811594" />
+        <entry key="..\:/COVID-19/app/src/main/res/layout/splash_fragment.xml" value="0.19882246376811594" />
       </map>
     </option>
   </component>
@@ -13,5 +22,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>
