@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.developers.covid_19.R
 import com.developers.covid_19.databinding.HomeFragmentBinding
 import com.developers.covid_19.databinding.SplashFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashFragment:Fragment() {
 
     private var _binding: SplashFragmentBinding? = null

@@ -5,8 +5,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.developers.covid_19.R
+import com.developers.covid_19.data.network.ApiJobService
 import com.developers.covid_19.qualifiers.IOThread
 import com.developers.covid_19.qualifiers.MainThread
+import com.example.architecturalskeleton.utils.Constants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -19,6 +21,8 @@ import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -94,6 +98,14 @@ object AppModel {
 
     @Provides
     @Singleton
+    fun provideHttpLoggingInterceptor( ): HttpLoggingInterceptor {
+        val localHttpLoggingInterceptor = HttpLoggingInterceptor()
+        localHttpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        return localHttpLoggingInterceptor
+    }
+
+    @Provides
+    @Singleton
     fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -112,17 +124,18 @@ object AppModel {
 
 
     // TODO: 11/8/2021  For implementation Retrofit
-//    @Provides
-//    @Singleton
-//    fun providesApiService(moshi: Moshi, okHttpClient: OkHttpClient): ApiJobService =
-//
-//        Retrofit.Builder()
-//            .run {
-//                baseUrl(Constants.BASE_URL)
-//                client(okHttpClient)
-//                addConverterFactory(GsonConverterFactory.create())
-//                build()
-//            }.create(ApiJobService::class.java)
+
+    @Provides
+    @Singleton
+    fun providesApiService(moshi: Moshi, okHttpClient: OkHttpClient): ApiJobService =
+
+        Retrofit.Builder()
+            .run {
+                baseUrl(Constants.BASE_URL)
+                client(okHttpClient)
+                addConverterFactory(GsonConverterFactory.create())
+                build()
+            }.create(ApiJobService::class.java)
 
 
 }

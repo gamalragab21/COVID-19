@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:fillViewport="true"
+    android:background="@drawable/home_bg"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +15,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/home_bg"
     >
 
-
+    <ProgressBar
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/topbg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
           <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/topbg"
             android:layout_width="match_parent"
-             android:background="@color/relative_bg"
              android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/cardConfirmedCases"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,10 +55,11 @@
                         android:layout_marginLeft="@dimen/_18sdp"
                         android:layout_weight="1"
                         android:text="@string/covid_19"
-                        android:textColor="@color/white"
+                        android:textColor="@color/relative_bg"
                         android:textSize="@dimen/_22ssp" />
 
                     <com.hbb20.CountryCodePicker
+                        android:id="@+id/countryCodeHolder"
                         android:layout_width="@dimen/_95sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_gravity="end"
@@ -60,6 +68,7 @@
                         android:baselineAligned="false"
                         android:gravity="end"
                         android:padding="@dimen/_3sdp"
+                        app:ccp_contentColor="@color/white"
                         app:ccp_autoDetectCountry="true"
                         app:ccp_showFullName="false"
                         app:ccp_showPhoneCode="false"
@@ -74,16 +83,35 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:orientation="horizontal">
 
-                    <org.eazegraph.lib.charts.PieChart
-                        android:layout_width="@dimen/_180sdp"
-                        android:layout_height="@dimen/_175sdp"
-                        android:id="@+id/piechart"
-                        android:padding="@dimen/_6sdp"
-                        app:egUsePieRotation="true"
-                        app:egValueTextSize="@dimen/_13ssp"
-                        app:egLegendTextSize="@dimen/_6ssp"
-                        />
-                      <LinearLayout
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <org.eazegraph.lib.charts.PieChart
+                            android:layout_width="@dimen/_180sdp"
+                            android:layout_height="@dimen/_175sdp"
+                            android:id="@+id/piechart"
+                            android:padding="@dimen/_6sdp"
+                            app:egUsePieRotation="true"
+                            app:egValueTextSize="@dimen/_13ssp"
+                            app:egLegendTextSize="@dimen/_6ssp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last update : yeasterday"
+                            android:textColor="@color/relative_bg"
+                            android:textSize="@dimen/_9ssp"
+                            android:id="@+id/lastUpdate"
+                            android:fontFamily="@font/medium"
+                            android:maxLines="1"
+                            android:layout_gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
+                       <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                          android:layout_gravity="center"
@@ -107,7 +135,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/active"
-                             android:textColor="@color/white"
+                             android:textColor="@color/relative_bg"
                              android:textSize="@dimen/_13ssp"
                              android:textStyle="bold"
                              android:layout_marginStart="@dimen/_8sdp"
@@ -132,7 +160,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/recovered"
-                             android:textColor="@color/white"
+                             android:textColor="@color/relative_bg"
                              android:textSize="@dimen/_13ssp"
                              android:layout_marginStart="@dimen/_8sdp"
                              android:textStyle="bold"
@@ -156,8 +184,8 @@
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:text="@string/total"
-                             android:textColor="@color/white"
+                             android:text="@string/Confirmed"
+                             android:textColor="@color/relative_bg"
                              android:textSize="@dimen/_13ssp"
                              android:layout_marginStart="@dimen/_8sdp"
                              android:textStyle="bold"
@@ -182,7 +210,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/deaths"
-                             android:textColor="@color/white"
+                             android:textColor="@color/relative_bg"
                              android:textSize="@dimen/_13ssp"
                              android:textStyle="bold"
                              android:layout_marginStart="@dimen/_8sdp"
@@ -197,7 +225,9 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-          <com.google.android.material.card.MaterialCardView
+
+
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardNewCases"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -244,7 +274,7 @@
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
                     android:text="New Cases"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView9"
                     app:layout_constraintStart_toEndOf="@+id/imageView9"
@@ -257,7 +287,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
                     android:text="52"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/imageView9"
                     app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -269,7 +299,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
                     android:text="People"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="9sp"
                     app:layout_constraintStart_toStartOf="@+id/newCases"
                     app:layout_constraintTop_toBottomOf="@+id/newCases" />
@@ -323,7 +353,7 @@
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
                     android:text="Total Recovered"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                     app:layout_constraintStart_toEndOf="@+id/imageView8"
@@ -336,7 +366,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
                     android:text="689"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/imageView8"
                     app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -348,7 +378,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
                     android:text="People"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="9sp"
                     app:layout_constraintStart_toStartOf="@+id/totalRecovered"
                     app:layout_constraintTop_toBottomOf="@+id/totalRecovered" />
@@ -356,7 +386,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-         <com.google.android.material.card.MaterialCardView
+          <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardConfirmedCases"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -393,7 +423,7 @@
                     android:layout_marginStart="@dimen/_4sdp"
                     android:fontFamily="@font/regular"
                     android:text="Confirmed Cases"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="@dimen/_8ssp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -406,7 +436,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
                     android:text="1,062"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/imageView6"
                     app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -418,7 +448,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
                     android:text="People"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="9sp"
                     app:layout_constraintStart_toStartOf="@+id/totalConfirmed"
                     app:layout_constraintTop_toBottomOf="@+id/totalConfirmed" />
@@ -484,7 +514,7 @@
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
                     android:text="Total Death"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -497,7 +527,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
                     android:text="75"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/imageView7"
                     app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -509,7 +539,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
                     android:text="People"
-                    android:textColor="#1E2432"
+                    android:textColor="@color/relative_bg"
                     android:textSize="9sp"
                     app:layout_constraintStart_toStartOf="@+id/totalDeath"
                     app:layout_constraintTop_toBottomOf="@+id/totalDeath" />
@@ -620,14 +650,20 @@
         android:text="Show Countires"
         android:textColor="@color/green"
         android:fontFamily="@font/medium"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_15ssp"
         android:textAlignment="textEnd"
         app:layout_constraintTop_toBottomOf="@id/home_banner"
         android:layout_marginTop="@dimen/_14sdp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:id="@+id/coutinestocoutries"
+        android:drawableEnd="@drawable/right_arrow"
+        android:drawablePadding="@dimen/_8sdp"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

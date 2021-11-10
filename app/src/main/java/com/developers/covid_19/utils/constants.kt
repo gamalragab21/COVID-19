@@ -6,6 +6,7 @@ import java.util.*
 
 object Constants {
 
+    const val BASE_URL="https://corona.lmao.ninja/v3/covid-19/"
     private const val SECOND_MILLIS = 1000
     private const val MINUTE_MILLIS = 60 * SECOND_MILLIS
     private const val HOUR_MILLIS = 60 * MINUTE_MILLIS
