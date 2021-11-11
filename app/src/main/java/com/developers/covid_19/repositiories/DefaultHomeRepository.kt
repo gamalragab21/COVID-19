@@ -1,7 +1,9 @@
 package com.developers.covid_19.repositiories
 
 import com.developers.covid_19.data.network.ApiJobService
+import com.developers.covid_19.entities.AllData
 import com.developers.covid_19.entities.CovidModelItem
+import com.developers.covid_19.entities.CovidParent
 import com.developers.covid_19.helpers.safeCall
 import com.developers.covid_19.qualifiers.IOThread
 import com.example.architecturalskeleton.helpers.Resource
@@ -23,4 +25,17 @@ class DefaultHomeRepository @Inject constructor(
             Resource.Success(result)
         }
     }
+    suspend fun getAllData(): Resource<AllData> = withContext(dispatcher){
+        safeCall {
+            val result=apiJobService.getAllDataWorld()
+            Resource.Success(result)
+        }
+    }
+
+   suspend fun getCountries(): Resource< ArrayList<CovidModelItem>> = withContext(dispatcher){
+       safeCall {
+           val result=apiJobService.getListCovidInfo()
+           Resource.Success(result)
+       }
+   }
 }

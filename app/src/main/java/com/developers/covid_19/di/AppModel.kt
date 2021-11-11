@@ -8,7 +8,7 @@ import com.developers.covid_19.R
 import com.developers.covid_19.data.network.ApiJobService
 import com.developers.covid_19.qualifiers.IOThread
 import com.developers.covid_19.qualifiers.MainThread
-import com.example.architecturalskeleton.utils.Constants
+import com.developers.covid_19.utils.Constants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

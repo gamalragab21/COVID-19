@@ -17,15 +17,7 @@
     android:layout_height="wrap_content"
     >
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/topbg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
           <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/topbg"
             android:layout_width="match_parent"
@@ -274,7 +266,7 @@
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
                     android:text="New Cases"
-                    android:textColor="@color/relative_bg"
+                    android:textColor="@color/blue"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView9"
                     app:layout_constraintStart_toEndOf="@+id/imageView9"
@@ -286,9 +278,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
-                    android:text="52"
+                    android:text=""
                     android:textColor="@color/relative_bg"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     app:layout_constraintStart_toStartOf="@+id/imageView9"
                     app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
@@ -300,7 +292,7 @@
                     android:fontFamily="@font/regular"
                     android:text="People"
                     android:textColor="@color/relative_bg"
-                    android:textSize="9sp"
+                    android:textSize="@dimen/_9ssp"
                     app:layout_constraintStart_toStartOf="@+id/newCases"
                     app:layout_constraintTop_toBottomOf="@+id/newCases" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -352,8 +344,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
-                    android:text="Total Recovered"
-                    android:textColor="@color/relative_bg"
+                    android:text="Today Recovered"
+                    android:textColor="@color/green"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                     app:layout_constraintStart_toEndOf="@+id/imageView8"
@@ -365,9 +357,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
-                    android:text="689"
+                    android:text=""
                     android:textColor="@color/relative_bg"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     app:layout_constraintStart_toStartOf="@+id/imageView8"
                     app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
@@ -379,7 +371,7 @@
                     android:fontFamily="@font/regular"
                     android:text="People"
                     android:textColor="@color/relative_bg"
-                    android:textSize="9sp"
+                    android:textSize="@dimen/_9ssp"
                     app:layout_constraintStart_toStartOf="@+id/totalRecovered"
                     app:layout_constraintTop_toBottomOf="@+id/totalRecovered" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -423,7 +415,7 @@
                     android:layout_marginStart="@dimen/_4sdp"
                     android:fontFamily="@font/regular"
                     android:text="Confirmed Cases"
-                    android:textColor="@color/relative_bg"
+                    android:textColor="@color/yellow"
                     android:textSize="@dimen/_8ssp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -435,9 +427,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
-                    android:text="1,062"
+                    android:text=""
                     android:textColor="@color/relative_bg"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     app:layout_constraintStart_toStartOf="@+id/imageView6"
                     app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
@@ -449,7 +441,7 @@
                     android:fontFamily="@font/regular"
                     android:text="People"
                     android:textColor="@color/relative_bg"
-                    android:textSize="9sp"
+                    android:textSize="@dimen/_9ssp"
                     app:layout_constraintStart_toStartOf="@+id/totalConfirmed"
                     app:layout_constraintTop_toBottomOf="@+id/totalConfirmed" />
 
@@ -513,8 +505,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/regular"
-                    android:text="Total Death"
-                    android:textColor="@color/relative_bg"
+                    android:text="Today Death"
+                    android:textColor="@color/red"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -526,9 +518,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/bold"
-                    android:text="75"
+                    android:text=""
                     android:textColor="@color/relative_bg"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     app:layout_constraintStart_toStartOf="@+id/imageView7"
                     app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
@@ -540,7 +532,7 @@
                     android:fontFamily="@font/regular"
                     android:text="People"
                     android:textColor="@color/relative_bg"
-                    android:textSize="9sp"
+                    android:textSize="@dimen/_9ssp"
                     app:layout_constraintStart_toStartOf="@+id/totalDeath"
                     app:layout_constraintTop_toBottomOf="@+id/totalDeath" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -645,9 +637,9 @@
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Countires"
+        android:text="Show Countires >>"
         android:textColor="@color/green"
         android:fontFamily="@font/medium"
         android:textSize="@dimen/_15ssp"
@@ -658,8 +650,7 @@
         android:layout_marginBottom="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:id="@+id/coutinestocoutries"
-        android:drawableEnd="@drawable/right_arrow"
+        android:id="@+id/showcountries"
         android:drawablePadding="@dimen/_8sdp"
         />
 

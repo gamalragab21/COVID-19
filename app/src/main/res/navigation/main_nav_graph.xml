@@ -19,5 +19,13 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/home_fragment"
         android:name="com.developers.covid_19.ui.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_countriesFragment"
+            app:destination="@id/countriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countriesFragment"
+        android:name="com.developers.covid_19.ui.fragments.CountriesFragment"
+        android:label="CountriesFragment" />
 </navigation>
