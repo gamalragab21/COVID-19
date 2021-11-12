@@ -45,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/bold"
+                    android:layout_gravity="center"
                     android:paddingStart="@dimen/_8sdp"
                     android:text="CountryName"
                     android:textColor="#202020"

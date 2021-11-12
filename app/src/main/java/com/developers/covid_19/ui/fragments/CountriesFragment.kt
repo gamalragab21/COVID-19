@@ -9,7 +9,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.developers.covid_19.databinding.CountriesFragmentBinding
 import com.developers.covid_19.entities.AllData
@@ -63,45 +65,57 @@ class CountriesFragment : Fragment() {
 
 
     private fun subscribeToObservers() {
-        lifecycleScope.launchWhenStarted {
-            countriesViewModel.allWorldStatus.collect(EventObserver(
-                onLoading = {
-                },
-                onError = {
-                    snackbar(it)
-                    Log.i("GAMALRAGAB", "subscribeToObservers: ${it}")
 
-                },
-                onSuccess = {
-                    Log.i("GAMALRAGAB", "subscribeToObservers: ${it}")
-                    addDataToView(it)
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    countriesViewModel.allWorldStatus.collect(EventObserver(
+                        onLoading = {
+                        },
+                        onError = {
+                            snackbar(it)
+                            Log.i("GAMALRAGAB", "subscribeToObservers: ${it}")
+
+                        },
+                        onSuccess = {
+                            Log.i("GAMALRAGAB", "subscribeToObservers: ${it}")
+                            addDataToView(it)
+
+                        }
+                    ))
+                }
+
+                launch {
+                    countriesViewModel.countriesStatus.collect(EventObserver(
+                        onLoading = {
+                            TransparentProgressDialog.show(requireContext())
+                        },
+                        onError = {
+                            snackbar(it)
+                            TransparentProgressDialog.hideProgress()
+                            Log.i("GAMALRAGAB", "countriesStatus: ${it}")
+
+                        },
+                        onSuccess = {countries->
+                            Log.i("GAMALRAGAB", "countriesStatus: ${countries.toString()}")
+                            Log.i("GAMALRAGAB", "countriesStatus: ${countries[100]}")
+                            Log.i("GAMALRAGAB", "countriesStatus: ${countries.size}")
+                            TransparentProgressDialog.hideProgress()
+
+                            countryAdapter.countries = countries
+                            countryAdapter.notifyDataSetChanged()
+                        }
+                    ))
 
                 }
-            ))
-        }
-            lifecycleScope.launchWhenStarted {
-
-                countriesViewModel.countriesStatus.collect(EventObserver(
-                    onLoading = {
-                        TransparentProgressDialog.show(requireContext())
-                    },
-                    onError = {
-                        snackbar(it)
-                        TransparentProgressDialog.hideProgress()
-                        Log.i("GAMALRAGAB", "countriesStatus: ${it}")
-
-                    },
-                    onSuccess = {
-                        Log.i("GAMALRAGAB", "countriesStatus: ${it[100]}")
-                        Log.i("GAMALRAGAB", "countriesStatus: ${it.size}")
-                        TransparentProgressDialog.hideProgress()
-
-                        countryAdapter.countries = it
-
-                    }
-                ))
-
             }
+        }
+
+
+
+
+
+
 
 
     }
@@ -129,11 +143,11 @@ class CountriesFragment : Fragment() {
             .format("\${%Value}{groupsSeparator: }")
         column.fill(
             "function() {" +
-                    "if (this.value ==${item.active}) return '#FF4CAF50 0.9';\n" +
-                    "else if (this.value==${item.cases}) return '#38ACDD 0.9';" +
-                    "else if (this.value==${item.deaths}) return '#f55c47 0.9';" +
-                    "else if (this.value==${item.recovered}) return '#FFB701 0.9';" +
-                    "else return '#FF4CAF50 0.9';}"
+                    "if (this.value ==${item.active}) return '#FF4CAF50 1';\n" +
+                    "else if (this.value==${item.cases}) return '#38ACDD 1';" +
+                    "else if (this.value==${item.deaths}) return '#f55c47 1';" +
+                    "else if (this.value==${item.recovered}) return '#FFB701 1';" +
+                    "else return '#FF4CAF50 1';}"
         );
         cartesian.animation(true)
         cartesian.title(" Covid-19 info  by Revenue")

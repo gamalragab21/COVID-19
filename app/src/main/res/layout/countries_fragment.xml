@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fillViewport="true"
     android:background="@drawable/home_bg"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_height="match_parent">
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/title_global"
@@ -22,51 +32,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.anychart.AnyChartView
+     <com.anychart.AnyChartView
         android:id="@+id/lineChart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_220sdp"
         app:layout_constraintTop_toBottomOf="@id/title_global"
-        />
-
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/spinkitLoadingChart"
-        style="@style/SpinKitView.Large.DoubleBounce"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:SpinKit_Color="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@id/lineChart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_global" />
+        app:layout_constraintBottom_toTopOf="@id/countriesId"
+        >
 
-    <TextView
-        android:id="@+id/countriesId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:fontFamily="@font/medium"
-        android:text="countries"
-        android:textColor="@color/relative_bg"
-        app:layout_constraintTop_toBottomOf="@id/lineChart"
-        android:layout_marginBottom="@dimen/_3sdp"
-        android:textSize="@dimen/_24ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="401dp" />
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spinkitLoadingChart"
+            style="@style/SpinKitView.Large.DoubleBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:SpinKit_Color="@color/colorAccent" />
+    </com.anychart.AnyChartView>
 
-    <androidx.recyclerview.widget.RecyclerView
+     <TextView
+         android:id="@+id/countriesId"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:fontFamily="@font/medium"
+         android:text="countries"
+         android:textColor="@color/relative_bg"
+         android:textSize="@dimen/_24ssp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         tools:layout_editor_absoluteY="402dp"
+         android:layout_marginStart="@dimen/_10sdp"
+         app:layout_constraintTop_toBottomOf="@id/countriesId"
+         app:layout_constraintBottom_toTopOf="@id/recylerCountry"
+         />
+         <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_5sdp"
          app:layout_constraintEnd_toEndOf="parent"
-
         android:layout_marginBottom="@dimen/_4sdp"
          android:id="@+id/recylerCountry"
         app:layout_constraintBottom_toTopOf="@id/spinkitLoadingCountries"
@@ -89,3 +97,6 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
