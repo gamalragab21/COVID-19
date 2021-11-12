@@ -35,7 +35,7 @@ class CountryAdapter @Inject constructor(
 
     private val diffCallback = object : DiffUtil.ItemCallback<CovidModelItem>() {
         override fun areContentsTheSame(oldItem: CovidModelItem, newItem: CovidModelItem): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
+            return oldItem.countryInfo._id == newItem.countryInfo._id
         }
 
         //

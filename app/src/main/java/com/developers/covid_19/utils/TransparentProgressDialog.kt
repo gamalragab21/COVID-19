@@ -34,17 +34,18 @@ object TransparentProgressDialog {
         }
 
         // Card Color
-    //    binding.cpCardview.setCardBackgroundColor(Color.parseColor("#70000000"))
+       binding.cpCardview.setBackgroundResource(R.drawable.home_bg)
        // binding.cpCardview.setCardBackgroundColor(Color.TRANSPARENT)
 
         // Progress Bar Color
-        setColorFilter(binding.cpPbar.indeterminateDrawable, ResourcesCompat.getColor(context.resources,  R.color.colorPrimary, null))
+      //  setColorFilter(binding.cpPbar.indeterminateDrawable, ResourcesCompat.getColor(context.resources,  R.color.colorPrimary, null))
 
         // Text Color
         binding.cpTitle.setTextColor(Color.WHITE)
 
         dialog = CustomDialog(context)
         dialog.setContentView(binding.root)
+        dialog.setCancelable(false)
         dialog.show()
         return dialog
     }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.developers.covid_19.R
 import com.developers.covid_19.databinding.HomeFragmentBinding
@@ -30,8 +31,15 @@ class SplashFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.start.setOnClickListener {
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        binding.cardViewStartNow.setOnClickListener {
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.splashFragment, true)
+                .build()
+            findNavController().navigate(
+                R.id.action_splashFragment_to_homeFragment,
+                savedInstanceState,
+                navOptions
+            )
         }
 
     }

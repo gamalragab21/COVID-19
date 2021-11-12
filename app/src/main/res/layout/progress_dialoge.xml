@@ -4,8 +4,10 @@
     android:id="@+id/cp_bg_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@android:color/transparent"
     app:layout_constraintBottom_toBottomOf="parent"
+
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -14,7 +16,6 @@
         android:id="@+id/cp_cardview"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:cardBackgroundColor="@color/gray_050"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
         android:outlineAmbientShadowColor="@color/relative_bg"

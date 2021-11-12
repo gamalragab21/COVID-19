@@ -93,17 +93,12 @@ class CountriesFragment : Fragment() {
                         onError = {
                             snackbar(it)
                             TransparentProgressDialog.hideProgress()
-                            Log.i("GAMALRAGAB", "countriesStatus: ${it}")
 
                         },
                         onSuccess = {countries->
                             Log.i("GAMALRAGAB", "countriesStatus: ${countries.toString()}")
-                            Log.i("GAMALRAGAB", "countriesStatus: ${countries[100]}")
-                            Log.i("GAMALRAGAB", "countriesStatus: ${countries.size}")
                             TransparentProgressDialog.hideProgress()
-
                             countryAdapter.countries = countries
-                            countryAdapter.notifyDataSetChanged()
                         }
                     ))
 

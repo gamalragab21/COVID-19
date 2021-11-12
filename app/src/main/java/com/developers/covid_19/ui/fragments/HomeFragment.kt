@@ -49,7 +49,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel.getCurrentCountrySelect(binding.countryCodeHolder.selectedCountryName)
+        binding.selcetdcountry.text=binding.countryCodeHolder.selectedCountryName
         binding.countryCodeHolder.setOnCountryChangeListener {
+            binding.selcetdcountry.text=binding.countryCodeHolder.selectedCountryName
             Log.i("GAMALRAGAB", "onViewCreated: ${binding.countryCodeHolder.selectedCountryName}")
             Log.i("GAMALRAGAB", "onViewCreated: ${binding.countryCodeHolder.selectedCountryNameCode}")
             homeViewModel.getCurrentCountrySelect(binding.countryCodeHolder.selectedCountryName)

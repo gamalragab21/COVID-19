@@ -99,6 +99,17 @@
                             android:maxLines="1"
                             android:layout_gravity="center"
                             />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/_9ssp"
+                            android:id="@+id/selcetdcountry"
+                            android:fontFamily="@font/medium"
+                            android:maxLines="1"
+                            android:layout_gravity="center"
+                            />
 
                     </LinearLayout>
 
